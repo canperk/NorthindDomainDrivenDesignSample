@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Northwind.Web</AssemblyName>
+    <RootNamespace>Northwind.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
