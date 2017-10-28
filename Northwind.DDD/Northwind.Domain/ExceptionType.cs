@@ -6,6 +6,7 @@
         NameIsTooShort = 1,
         InvalidCharacter = 2,
         EmptyValue = 3,
-        InvalidMailAddress = 4
+        InvalidMailAddress = 4,
+        InvalidCustomerCode = 5
     }
 }

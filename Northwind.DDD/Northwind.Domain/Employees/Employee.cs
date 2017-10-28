@@ -1,8 +1,6 @@
 ﻿using Northwind.Framework;
 using Northwind.Framework.Entity;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Northwind.Domain.Employees
 {
@@ -13,22 +11,35 @@ namespace Northwind.Domain.Employees
         public string LastName { get; protected set; }
 
         public DateTime? HireDate { get; set; }
-        public DateTime? BirtDate { get; set; }
-        public string EMail { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public string EMail { get; protected set; }
         public string City { get; set; }
         public string Country { get; set; }
-
-        public Employee SetName(string name)
+        public static Employee Create(string firstname, string lastname, string email)
         {
-            TypeCheck.IsNullOrEmpty(name);
-            FirstName = name;
-            return this;
+            var employee = new Employee();
+            employee.SetName(firstname);
+            employee.SetLastName(lastname);
+            employee.SetEMail(email);
+            employee.Created = DateTime.Now;
+            employee.Modified = DateTime.Now;
+            return employee;
         }
-        public Employee SetLastName(string name)
+        public void SetName(string name)
         {
-            TypeCheck.IsNullOrEmpty(name);
-            LastName = name;
-            return this;
+            EmployeePolicy.CheckNameRequirement(name);
+            FirstName = TypeCheck.IsNullOrEmpty(name);
+        }
+        public void SetLastName(string lastname)
+        {
+            EmployeePolicy.CheckLastNameRequirement(lastname);
+            LastName = TypeCheck.IsNullOrEmpty(lastname); 
+        }
+
+        public void SetEMail(string email)
+        {
+            CommonPolicy.CheckMail(TypeCheck.IsNullOrEmpty(email));
+            EMail = email;
         }
     }
 }
