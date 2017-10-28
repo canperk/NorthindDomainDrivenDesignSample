@@ -11,7 +11,7 @@ namespace Northwind.Domain.Customers
             var newValue = code.Trim();
             if (newValue.Length == 0)
                 throw new CustomerCodeInvalidException();
-            return newValue.ToUpper();
+            return newValue.ToUpper(); 
         }
     }
 }

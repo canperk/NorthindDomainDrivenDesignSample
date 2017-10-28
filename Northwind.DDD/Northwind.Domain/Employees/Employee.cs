@@ -15,6 +15,7 @@ namespace Northwind.Domain.Employees
         public string EMail { get; protected set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public long ManagerId { get; protected set; }
         public static Employee Create(string firstname, string lastname, string email)
         {
             var employee = new Employee();

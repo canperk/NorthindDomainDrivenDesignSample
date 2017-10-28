@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Northwind.Framework.Domain;
+using System;
 
 namespace Northwind.Domain.Customers
 {

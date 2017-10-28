@@ -1,4 +1,6 @@
-﻿namespace Northwind.Domain.Employees
+﻿using Northwind.Framework.Domain;
+
+namespace Northwind.Domain.Employees
 {
     public class NameIsTooShortException : OperationalException
     {
