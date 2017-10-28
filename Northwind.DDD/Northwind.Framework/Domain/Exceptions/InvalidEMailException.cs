@@ -1,4 +1,4 @@
-﻿namespace Northwind.Domain
+﻿namespace Northwind.Framework.Domain
 {
     public class InvalidEMailException : OperationalException
     {

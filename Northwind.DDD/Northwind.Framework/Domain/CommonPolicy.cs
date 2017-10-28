@@ -1,7 +1,7 @@
 ﻿using Northwind.Framework.Helpers;
 using System.Text.RegularExpressions;
 
-namespace Northwind.Domain
+namespace Northwind.Framework.Domain
 {
     public class CommonPolicy
     {
