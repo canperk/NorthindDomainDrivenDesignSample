@@ -1,4 +1,5 @@
 ﻿using Northwind.Framework;
+using Northwind.Framework.Domain;
 using Northwind.Framework.Entity;
 using System;
 
