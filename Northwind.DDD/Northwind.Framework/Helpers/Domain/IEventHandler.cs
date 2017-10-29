@@ -1,6 +1,6 @@
 ﻿namespace Northwind.Framework.Helpers
 {
-    interface EventHandler<T> where T : DomainEvent
+    interface IEventHandler<T> where T : DomainEvent
     {
         void Handle(T args);
     }

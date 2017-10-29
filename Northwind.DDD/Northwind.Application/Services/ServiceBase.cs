@@ -2,7 +2,7 @@
 
 namespace Northwind.Application.Services
 {
-    public abstract class ServiceBase
+    internal abstract class ServiceBase
     {
         public ServiceBase()
         {

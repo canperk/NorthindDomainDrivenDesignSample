@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj" />
-    <ProjectReference Include="..\Northwind.Framework\Northwind.Framework.csproj" />
   </ItemGroup>
 
 </Project>

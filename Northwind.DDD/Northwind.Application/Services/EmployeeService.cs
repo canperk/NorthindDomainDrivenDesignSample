@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Northwind.Application.Services
 {
-    public class EmployeeService : ServiceBase, IDomainService, IEmployeeRepository
+    internal class EmployeeService : ServiceBase, IDomainService, IEmployeeRepository
     {
         public IEnumerable<Employee> Find(IFilter<Employee> filter)
         {

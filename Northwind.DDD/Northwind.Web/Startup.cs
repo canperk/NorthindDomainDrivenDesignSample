@@ -11,13 +11,9 @@ namespace Northwind.Web
 {
     public class Startup
     {
-        
-
         public Startup()
         {
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appSettings.json");
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appSettings.json");
             Configuration = builder.Build();
         }
         public IConfigurationRoot Configuration { get; set; }
