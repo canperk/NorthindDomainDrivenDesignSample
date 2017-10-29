@@ -6,13 +6,8 @@ using System.Collections.Generic;
 
 namespace Northwind.Application.Services
 {
-    public class EmployeeService : IDomainService, IEmployeeRepository
+    public class EmployeeService : ServiceBase, IDomainService, IEmployeeRepository
     {
-        private readonly IUnitOfWork unitOfWork;
-        public EmployeeService(IUnitOfWork unitOfWork)
-        {
-            this.unitOfWork = unitOfWork;
-        }
         public IEnumerable<Employee> Find(IFilter<Employee> filter)
         {
             throw new NotImplementedException();
