@@ -1,5 +1,4 @@
 ﻿using Northwind.Framework.Helpers;
-using System;
 using System.Collections.Generic;
 
 namespace Northwind.Domain.Employees

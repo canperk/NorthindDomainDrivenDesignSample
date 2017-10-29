@@ -2,7 +2,7 @@
 
 namespace Northwind.Domain.Customers
 {
-    public interface ICustomerRepository : IRepository<Customer, string>
+    public interface ICustomerRepository : IEmployeeRepository<Customer, string>
     {
         Customer GetContactByMail(string email);
     }
