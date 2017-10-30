@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Northwind.Framework.Domain.Exceptions;
+using System;
 
 namespace Northwind.Framework
 {

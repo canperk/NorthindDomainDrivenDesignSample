@@ -11,5 +11,11 @@ namespace Northwind.Domain.Products
             if (price <= 0)
                 throw new InvalidPriceException();
         }
+
+        public static void CheckStock(double stock)
+        {
+            if (stock <= 0)
+                throw new InvalidStockException();
+        }
     }
 }

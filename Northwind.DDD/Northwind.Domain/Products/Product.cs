@@ -12,21 +12,31 @@ namespace Northwind.Domain.Products
         public decimal UnitPrice { get; protected set; }
         public double UnitsInStock { get; protected set; }
         public int CategoryId { get; protected set; }
-
+        public int SupplierId { get; protected set; }
         public static Product Create(Category category, string name, decimal price, double stock)
         {
             var product = new Product();
             TypeCheck.IsNull(category);
             TypeCheck.IsUsableAsId(category.Id);
+            //TODO: Supplier
             product.SetCategory(category.Id);
             product.SetName(name);
             product.SetPrice(price);
+            product.SetStock(stock);
             return product;
+        }
+
+        private void SetStock(double stock)
+        {
+            ProductPolicy.CheckStock(stock);
+            //TODO: Fire event to notify supplier and sales employee
+            UnitsInStock = stock;
         }
 
         private void SetPrice(decimal price)
         {
             ProductPolicy.CheckPrice(price);
+            //TODO: Fire event to notify users for price change
             UnitPrice = price;
         }
 
@@ -42,7 +52,5 @@ namespace Northwind.Domain.Products
             TypeCheck.IsUsableAsId(id);
             CategoryId = id;
         }
-
-
     }
 }

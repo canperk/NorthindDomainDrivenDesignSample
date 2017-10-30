@@ -9,6 +9,7 @@
         InvalidMailAddress = 4,
         InvalidCustomerCode = 5,
         InvalidId = 6,
-        InvalidPrice = 7
+        InvalidPrice = 7,
+        InvalidStock = 8
     }
 }
