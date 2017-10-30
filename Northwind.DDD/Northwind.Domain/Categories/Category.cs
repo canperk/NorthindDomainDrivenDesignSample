@@ -1,9 +1,7 @@
 ﻿using Northwind.Domain.Products;
 using Northwind.Framework;
 using Northwind.Framework.Entity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Northwind.Domain.Categories
 {

@@ -17,5 +17,11 @@ namespace Northwind.Framework
                 throw new ArgumentNullException(nameof(value));
             return value;
         }
+
+        public static void IsUsableAsId(long number)
+        {
+            if (number == 0)
+                throw new InvalidValueAsIdException();
+        }
     }
 }

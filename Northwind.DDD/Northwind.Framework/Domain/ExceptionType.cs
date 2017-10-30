@@ -7,6 +7,8 @@
         InvalidCharacter = 2,
         EmptyValue = 3,
         InvalidMailAddress = 4,
-        InvalidCustomerCode = 5
+        InvalidCustomerCode = 5,
+        InvalidId = 6,
+        InvalidPrice = 7
     }
 }
