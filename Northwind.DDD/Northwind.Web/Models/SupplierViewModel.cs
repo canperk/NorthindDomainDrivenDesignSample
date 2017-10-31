@@ -1,4 +1,4 @@
-﻿using Northwind.Application.Employees;
+﻿using Northwind.Application.Suppliers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Web.Models
 {
-    public class EmployeeViewModel : EmployeeDto
+    public class SupplierViewModel : SupplierDto
     {
     }
 }

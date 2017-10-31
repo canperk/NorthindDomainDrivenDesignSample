@@ -1,4 +1,4 @@
-﻿namespace Northwind.Application.Dtos
+﻿namespace Northwind.Application.Customers
 {
     public class CustomerDto
     {

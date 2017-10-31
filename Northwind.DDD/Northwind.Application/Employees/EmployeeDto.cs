@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Northwind.Application.Dtos
+namespace Northwind.Application.Employees
 {
     public class EmployeeDto
     {

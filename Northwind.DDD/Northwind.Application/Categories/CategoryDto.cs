@@ -1,4 +1,4 @@
-﻿namespace Northwind.Application.Dtos
+﻿namespace Northwind.Application.Categories
 {
     public class CategoryDto
     {

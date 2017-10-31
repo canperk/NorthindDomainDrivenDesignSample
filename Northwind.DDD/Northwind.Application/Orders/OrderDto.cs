@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Northwind.Application.Dtos
+namespace Northwind.Application.Orders
 {
     public class OrderDto
     {
