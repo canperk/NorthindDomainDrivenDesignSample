@@ -2,6 +2,7 @@
 using Northwind.Domain.Categories;
 using Northwind.Framework;
 using Northwind.Framework.Entity;
+using Northwind.Domain.Suppliers;
 
 namespace Northwind.Domain.Products
 {
@@ -13,16 +14,18 @@ namespace Northwind.Domain.Products
         public double UnitsInStock { get; protected set; }
         public int CategoryId { get; protected set; }
         public int SupplierId { get; protected set; }
-        public static Product Create(Category category, string name, decimal price, double stock)
+        public static Product Create(Category category, Supplier supplier, string name, decimal price, double stock)
         {
             var product = new Product();
             TypeCheck.IsNull(category);
             TypeCheck.IsUsableAsId(category.Id);
-            //TODO: Supplier
+            TypeCheck.IsNull(supplier);
+            TypeCheck.IsUsableAsId(supplier.Id);
             product.SetCategory(category.Id);
             product.SetName(name);
             product.SetPrice(price);
             product.SetStock(stock);
+            product.SetSupplier(supplier.Id);
             return product;
         }
 
@@ -46,11 +49,16 @@ namespace Northwind.Domain.Products
             Name = name;
         }
 
-
         public void SetCategory(int id)
         {
             TypeCheck.IsUsableAsId(id);
             CategoryId = id;
+        }
+        public void SetSupplier(int id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            //TODO: Fire event to notify supplier on supplying new prouct
+            SupplierId = id;
         }
     }
 }
