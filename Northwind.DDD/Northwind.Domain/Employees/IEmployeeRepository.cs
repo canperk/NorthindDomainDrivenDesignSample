@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Northwind.Domain.Employees
 {
-    public interface IEmployeeRepository : IRepository<Employee, long>
+    public interface IEmployeeRepository : IRepository<Employee, int>
     {
         IEnumerable<Employee> GetEmployeesByCountry(string countryName);
-        Employee GetManager(long employeeId);
+        Employee GetManager(int employeeId);
     }
 }

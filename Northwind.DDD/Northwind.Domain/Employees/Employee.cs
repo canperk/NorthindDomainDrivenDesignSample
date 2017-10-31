@@ -5,9 +5,9 @@ using System;
 
 namespace Northwind.Domain.Employees
 {
-    public class Employee : EntityBase, IEntityKey<long>
+    public class Employee : EntityBase, IEntityKey<int>
     {
-        public long Id { get; protected set; }
+        public int Id { get; protected set; }
         public string FirstName { get; protected set; } 
         public string LastName { get; protected set; }
 

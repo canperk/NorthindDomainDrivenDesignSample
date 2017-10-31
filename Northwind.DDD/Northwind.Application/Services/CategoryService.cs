@@ -5,7 +5,7 @@ using Northwind.Framework.Helpers;
 
 namespace Northwind.Application.Services
 {
-    internal class CategoryService : ServiceBase, IDomainService, ICategoryRepository
+    public class CategoryService : ServiceBase, IDomainService, ICategoryRepository
     {
         public IEnumerable<Category> Find(IFilter<Category> filter)
         {

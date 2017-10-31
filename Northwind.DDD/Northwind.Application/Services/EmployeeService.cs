@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace Northwind.Application.Services
 {
-    internal class EmployeeService : ServiceBase, IDomainService, IEmployeeRepository
+    public class EmployeeService : ServiceBase, IDomainService, IEmployeeRepository
     {
         public IEnumerable<Employee> Find(IFilter<Employee> filter)
         {
             throw new NotImplementedException();
         }
 
-        public Employee FindById(long id)
+        public Employee FindById(int id)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace Northwind.Application.Services
             throw new NotImplementedException();
         }
 
-        public Employee GetManager(long employeeId)
+        public Employee GetManager(int employeeId)
         {
             throw new NotImplementedException();
         }

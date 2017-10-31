@@ -1,4 +1,5 @@
 ﻿using Northwind.Domain.Customers;
+using Northwind.Domain.Employees;
 using Northwind.Framework;
 using Northwind.Framework.Entity;
 using System;
@@ -11,14 +12,17 @@ namespace Northwind.Domain.Orders
     {
         public long Id { get; protected set; }
         public string CustomerId { get; protected set; }
+        public int EmployeeId { get; protected set; }
         public bool IsUrgent { get; protected set; }
         public DateTime? LastShipDate { get; protected set; }
 
-        public static Order Create(Customer customer, bool isUrgent, DateTime? shipDate)
+        public static Order Create(Customer customer, Employee employee, bool isUrgent, DateTime? shipDate)
         {
             TypeCheck.IsNull(customer);
             TypeCheck.IsNullOrEmpty(customer.Id);
-            var order = new Order() { CustomerId = customer.Id };
+            TypeCheck.IsNull(employee);
+            TypeCheck.IsUsableAsId(employee.Id);
+            var order = new Order() { CustomerId = customer.Id, EmployeeId = employee.Id };
             if (isUrgent)
             {
                 order.SetAsUrgent(shipDate);
