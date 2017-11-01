@@ -11,9 +11,10 @@ using System;
 namespace Northwind.Application.Migrations
 {
     [DbContext(typeof(NorthwindDbContext))]
-    partial class NorthwindDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171101085136_SuppliersMigration")]
+    partial class SuppliersMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,6 +164,8 @@ namespace Northwind.Application.Migrations
 
                     b.Property<int>("SupplierId");
 
+                    b.Property<int?>("SupplierId1");
+
                     b.Property<decimal>("UnitPrice");
 
                     b.Property<double>("UnitsInStock");
@@ -172,6 +175,8 @@ namespace Northwind.Application.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("SupplierId");
+
+                    b.HasIndex("SupplierId1");
 
                     b.ToTable("Products");
                 });
@@ -237,9 +242,13 @@ namespace Northwind.Application.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Northwind.Domain.Suppliers.Supplier")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Northwind.Domain.Suppliers.Supplier")
+                        .WithMany("Products")
+                        .HasForeignKey("SupplierId1");
                 });
 #pragma warning restore 612, 618
         }

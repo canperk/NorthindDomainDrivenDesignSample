@@ -11,9 +11,10 @@ using System;
 namespace Northwind.Application.Migrations
 {
     [DbContext(typeof(NorthwindDbContext))]
-    partial class NorthwindDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171101084922_OrderDetailsAndRelation")]
+    partial class OrderDetailsAndRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,37 +172,7 @@ namespace Northwind.Application.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("SupplierId");
-
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Northwind.Domain.Suppliers.Supplier", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("CompanyName");
-
-                    b.Property<string>("Country");
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("Fax");
-
-                    b.Property<string>("Manager");
-
-                    b.Property<DateTime>("Modified");
-
-                    b.Property<string>("Phone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Suppliers");
                 });
 
             modelBuilder.Entity("Northwind.Domain.OrderDetails.OrderDetail", b =>
@@ -234,11 +205,6 @@ namespace Northwind.Application.Migrations
                     b.HasOne("Northwind.Domain.Categories.Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Northwind.Domain.Suppliers.Supplier")
-                        .WithMany("Products")
-                        .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -10,6 +10,8 @@
         InvalidCustomerCode = 5,
         InvalidId = 6,
         InvalidPrice = 7,
-        InvalidStock = 8
+        InvalidStock = 8,
+        InvalidOrderPriceException = 9,
+        InvalidOrderQuantityException = 10
     }
 }
