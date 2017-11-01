@@ -19,6 +19,7 @@ namespace Northwind.Web
         public IConfigurationRoot Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<DbContext, NorthwindDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
