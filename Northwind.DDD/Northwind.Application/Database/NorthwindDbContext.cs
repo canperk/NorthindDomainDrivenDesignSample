@@ -11,7 +11,19 @@ namespace Northwind.Application.Database
     {
         public NorthwindDbContext(DbContextOptions<NorthwindDbContext> dbContextOptions) : base(dbContextOptions)
         {
-                
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>(e => {
+                e.HasKey(x => x.Id);
+                e.Property(x => x.EmployeeId).IsRequired();
+                e.HasOne<Employee>()
+                    .WithMany()
+                    .HasForeignKey(x => x.EmployeeId);
+            });
+
+            base.OnModelCreating(modelBuilder);
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Customer> Customers { get; set; }
