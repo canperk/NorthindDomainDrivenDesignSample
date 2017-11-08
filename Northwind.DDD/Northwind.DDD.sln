@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Web", "Northwind.Web\Northwind.Web.csproj", "{2E802609-7A27-49BE-AA46-E75FF4DBEB72}"
 EndProject
@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Framework", "Nort
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{64E8A160-5F97-473E-A904-925AF000E0CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.UnitTests", "Northwind.UnitTests\Northwind.UnitTests.csproj", "{F9CE71A1-F352-4103-A28F-CEBF8CD37D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.UnitTests", "Northwind.UnitTests\Northwind.UnitTests.csproj", "{F9CE71A1-F352-4103-A28F-CEBF8CD37D5A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Northwind.DataBase", "Northwind.DataBase\Northwind.DataBase.sqlproj", "{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,12 @@ Global
 		{F9CE71A1-F352-4103-A28F-CEBF8CD37D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9CE71A1-F352-4103-A28F-CEBF8CD37D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9CE71A1-F352-4103-A28F-CEBF8CD37D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +60,7 @@ Global
 		{72F4C448-5C0F-4872-8DD7-1B26D981B68D} = {8658ABC7-37AD-481D-9F9A-9AB00CC43CF0}
 		{D2A1711A-CFC2-4673-9578-7B18BF9818A8} = {8658ABC7-37AD-481D-9F9A-9AB00CC43CF0}
 		{F9CE71A1-F352-4103-A28F-CEBF8CD37D5A} = {64E8A160-5F97-473E-A904-925AF000E0CC}
+		{FD6DD120-F5D6-4214-BCF6-D03AC2A11A93} = {64E8A160-5F97-473E-A904-925AF000E0CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF711025-3661-47E7-9718-738A80AFDB9E}
