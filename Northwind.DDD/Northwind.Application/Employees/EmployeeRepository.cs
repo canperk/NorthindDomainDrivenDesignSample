@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Northwind.Framework.Helpers;
 using System.Linq;
 using Northwind.Framework.Domain.Exceptions;
+using Northwind.Framework;
 
 namespace Northwind.Application.Employees
 {
@@ -44,7 +45,7 @@ namespace Northwind.Application.Employees
         public Employee GetManager(int employeeId)
         {
             var employee = FindById(employeeId);
-            if (employee.ManagerId.HasValue)
+            if (TypeCheck.IsUsableAsId(employee.ManagerId))
             {
                 var manager = FindById(employee.ManagerId.Value);
                 return manager;

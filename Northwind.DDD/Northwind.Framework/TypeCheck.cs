@@ -19,10 +19,15 @@ namespace Northwind.Framework
             return value;
         }
 
-        public static void IsUsableAsId(long number)
+        public static bool IsUsableAsId(long? number)
         {
-            if (number == 0)
+            if (!number.HasValue)
+            {
+                return false;
+            }
+            if (number <= 0)
                 throw new InvalidValueAsIdException();
+            return true;
         }
     }
 }
