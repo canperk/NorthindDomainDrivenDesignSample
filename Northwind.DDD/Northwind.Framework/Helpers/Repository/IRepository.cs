@@ -1,4 +1,5 @@
-﻿using Northwind.Framework.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Framework.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,6 @@ namespace Northwind.Framework.Helpers
         IEnumerable<TEntity> Find(IFilter<TEntity> filter);
         void Save(TEntity entity);
         void Remove(TEntity entity);
+        DbSet<TEntity> Repository { get; }
     }
 }

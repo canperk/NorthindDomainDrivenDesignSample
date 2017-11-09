@@ -12,6 +12,7 @@
         InvalidPrice = 7,
         InvalidStock = 8,
         InvalidOrderPriceException = 9,
-        InvalidOrderQuantityException = 10
+        InvalidOrderQuantityException = 10,
+        EntityNotFoundById = 11
     }
 }

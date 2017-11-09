@@ -12,6 +12,6 @@ namespace Northwind.Application.Employees
         public DateTime? HireDate { get; set; }
         public DateTime? BirthDate { get; set; }
         public string EMail { get; set; }
-        public long ManagerId { get; set; }
+        public int? ManagerId { get; set; }
     }
 }

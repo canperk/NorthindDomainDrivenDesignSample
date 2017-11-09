@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Northwind.Framework.Entity;
 using Northwind.Framework.Helpers;
 using System;
 
@@ -12,6 +13,10 @@ namespace Northwind.Application.Database
         public UnitOfWork(DbContext context)
         {
             _context = context;
+        }
+        public DbSet<T> GetDbSet<T>() where T : EntityBase
+        {
+            return _context.Set<T>();
         }
         public void Commit()
         {
