@@ -12,6 +12,6 @@ namespace Northwind.Application.Services
         {
             UnitOfWork = unitOfWork;
         }
-        public IUnitOfWork UnitOfWork { get; private set; }
+        protected IUnitOfWork UnitOfWork { get; private set; }
     }
 }
