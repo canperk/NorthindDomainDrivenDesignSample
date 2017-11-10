@@ -1,21 +1,43 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Northwind.Application.Employees;
 using Northwind.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using Northwind.Domain.Employees;
 
 namespace Northwind.UnitTests
 {
     [TestClass]
     public class EmployeeTest : UnitTestBase
     {
+        public EmployeeTest()
+        {
+            Service = new EmployeeService(_resolver.GetService<IEmployeeRepository>(), UnitOfWork);
+        }
+        public EmployeeService Service { get; set; }
         [TestMethod]
         public void GetEmployeeById()
         {
             var expectedFullName = "Nancy Davolio";
-            var repo = new EmployeeRepository(UnitOfWork);
-            var service = new EmployeeService(repo);
-            var employee = service.GetEmployeeById(1);
+            var employee = Service.GetEmployeeById(1);
             var result = $"{employee.FirstName} {employee.LastName}";
             Assert.AreEqual(expectedFullName, result);
+        }
+        [TestMethod]
+        public void AddEmployee()
+        {
+            var employee = new EmployeeDto
+            {
+                FirstName = "Can",
+                LastName = "PERK",
+                EMail = "can.perk@mail.com",
+                City = "Ankara",
+                Country = "Turkiye",
+                BirthDate = new System.DateTime(1988, 2, 8),
+                HireDate = DateTime.Now.AddDays(-45),
+            };
+            Service.AddEmployee(employee);
+            UnitOfWork.Commit();
         }
     }
 }

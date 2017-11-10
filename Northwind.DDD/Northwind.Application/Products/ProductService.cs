@@ -1,18 +1,18 @@
 ﻿using Northwind.Domain.Products;
-using System;
-using System.Collections.Generic;
 using Northwind.Framework.Helpers;
-using Northwind.Application.Services;
 using Northwind.Framework.Domain;
 
 namespace Northwind.Application.Products
 {
-    public class ProductService : ServiceBase, IDomainService
+    public class ProductService : IDomainService
     {
         private readonly IProductRepository _repo;
-        public ProductService(IProductRepository repo)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ProductService(IProductRepository repo, IUnitOfWork unitOfWork)
         {
             _repo = repo;
+            _unitOfWork = unitOfWork;
         }
     }
 }

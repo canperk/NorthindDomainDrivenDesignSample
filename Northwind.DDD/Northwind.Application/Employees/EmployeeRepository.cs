@@ -8,7 +8,7 @@ using Northwind.Framework;
 
 namespace Northwind.Application.Employees
 {
-    public class EmployeeRepository : IEmployeeRepository
+    internal class EmployeeRepository : IEmployeeRepository
     {
         private readonly IUnitOfWork _unitOfwork;
         public EmployeeRepository(IUnitOfWork unitOfwork)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Northwind.Application;
 using Northwind.Application.Database;
 using Northwind.Application.Employees;
 using Northwind.Domain.Employees;
@@ -25,9 +26,7 @@ namespace Northwind.UnitTests
 
             var configuration = builder.Build();
             _services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            _services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            _services.AddScoped<DbContext, NorthwindDbContext>();
-            _services.AddScoped<IUnitOfWork, UnitOfWork>();
+            _services.AddNorthwind();
             _resolver = _services.BuildServiceProvider();
             UnitOfWork = _resolver.GetService<IUnitOfWork>();
         }

@@ -1,20 +1,18 @@
 ﻿using Northwind.Domain.Suppliers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Northwind.Framework.Helpers;
-using Northwind.Application.Services;
 using Northwind.Framework.Domain;
 
 namespace Northwind.Application.Suppliers
 {
-    public class SupplierService : ServiceBase, IDomainService
+    public class SupplierService : IDomainService
     {
         private readonly ISupplierRepository _repo;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SupplierService(ISupplierRepository repo)
+        public SupplierService(ISupplierRepository repo, IUnitOfWork unitOfWork)
         {
             _repo = repo;
+            _unitOfWork = unitOfWork;
         }
     }
 }

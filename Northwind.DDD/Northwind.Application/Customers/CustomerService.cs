@@ -1,19 +1,18 @@
-﻿using Northwind.Application.Services;
-using Northwind.Domain.Customers;
+﻿using Northwind.Domain.Customers;
 using Northwind.Framework.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Northwind.Framework.Helpers;
 
 namespace Northwind.Application.Customers
 {
-    public class CustomerService : ServiceBase, IDomainService
+    public class CustomerService : IDomainService
     {
         private readonly ICustomerRepository _repo;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CustomerService(ICustomerRepository repo)
+        public CustomerService(ICustomerRepository repo, IUnitOfWork unitOfWork)
         {
             _repo = repo;
+            _unitOfWork = unitOfWork;
         }
     }
 }

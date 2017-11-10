@@ -1,18 +1,18 @@
-﻿using Northwind.Application.Services;
-using Northwind.Domain.Orders;
+﻿using Northwind.Domain.Orders;
 using Northwind.Framework.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Northwind.Framework.Helpers;
 
 namespace Northwind.Application.Orders
 {
-    public class OrderService : ServiceBase, IDomainService
+    public class OrderService : IDomainService
     {
         private readonly IOrderRepository _repo;
-        public OrderService(IOrderRepository repo)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public OrderService(IOrderRepository repo, IUnitOfWork unitOfWork)
         {
             _repo = repo;
+            _unitOfWork = unitOfWork;
         }
     }
 }

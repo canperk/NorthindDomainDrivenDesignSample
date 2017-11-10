@@ -6,6 +6,7 @@ using Northwind.Application.Database;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Northwind.Application;
 
 namespace Northwind.Web
 {
@@ -20,9 +21,9 @@ namespace Northwind.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            //TODO: Generic injector --> https://horfin.visualstudio.com/Horfin/_versionControl?path=%24%2FHorfin%2FHorfin.Data%2FServiceCollectionExtensions.cs&_a=contents
             services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<DbContext, NorthwindDbContext>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddNorthwind();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
