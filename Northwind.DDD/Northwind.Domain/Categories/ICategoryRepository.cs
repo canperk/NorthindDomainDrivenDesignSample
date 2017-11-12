@@ -1,4 +1,5 @@
-﻿using Northwind.Framework.Helpers;
+﻿using Northwind.Domain.Products;
+using Northwind.Framework.Helpers;
 using System;
 using System.Collections.Generic;
 
