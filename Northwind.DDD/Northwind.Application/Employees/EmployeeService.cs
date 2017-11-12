@@ -64,6 +64,13 @@ namespace Northwind.Application.Services
             }).ToList();
         }
 
+        public bool UserHasManager(int id)
+        {
+            var employee = _repo.FindById(id);
+            var filter = new HasManagerFilter();
+            return filter.IsFilteredBy(employee);
+        }
+
         public IEnumerable<EmployeeDto> GetEmployeesWithoutManager()
         {
             var filter = new HasNoManagerFilter();

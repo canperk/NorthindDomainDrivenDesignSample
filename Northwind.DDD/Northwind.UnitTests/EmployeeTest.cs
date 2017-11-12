@@ -52,5 +52,11 @@ namespace Northwind.UnitTests
             var employees = Service.GetEmployeesWithoutManager();
             Assert.IsTrue(employees.Any());
         }
+        [TestMethod]
+        public void EmployeeHasManager()
+        {
+            var result = Service.UserHasManager(9);
+            Assert.IsTrue(result);
+        }
     }
 }
