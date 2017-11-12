@@ -1,7 +1,10 @@
-﻿using Northwind.Application.Employees;
+﻿using System;
+using Northwind.Application.Employees;
 using Northwind.Domain.Employees;
 using Northwind.Framework.Domain;
 using Northwind.Framework.Helpers;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Northwind.Application.Services
 {
@@ -43,6 +46,22 @@ namespace Northwind.Application.Services
             entity.HireDate = employee.HireDate;
             _repo.Save(entity);
             return entity.Id > 0;
+        }
+
+        public IEnumerable<EmployeeDto> GetEmployeesByCountry(string country)
+        {
+            return _repo.GetEmployeesByCountry(country).Select(i => new EmployeeDto
+            {
+                Id = i.Id,
+                FirstName = i.FirstName,
+                LastName = i.LastName,
+                BirthDate = i.BirthDate,
+                City = i.City,
+                Country = i.Country,
+                EMail = i.EMail,
+                HireDate = i.HireDate,
+                ManagerId = i.ManagerId
+            }).ToList();
         }
     }
 }

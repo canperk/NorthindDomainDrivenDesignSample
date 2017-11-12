@@ -4,6 +4,7 @@ using Northwind.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Northwind.Domain.Employees;
+using System.Linq;
 
 namespace Northwind.UnitTests
 {
@@ -38,6 +39,12 @@ namespace Northwind.UnitTests
             };
             Service.AddEmployee(employee);
             UnitOfWork.Commit();
+        }
+        [TestMethod]
+        public void GetAmericanEmployees()
+        {
+            var employees = Service.GetEmployeesByCountry("USA");
+            Assert.IsTrue(employees.Any());
         }
     }
 }
