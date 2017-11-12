@@ -46,5 +46,11 @@ namespace Northwind.UnitTests
             var employees = Service.GetEmployeesByCountry("USA");
             Assert.IsTrue(employees.Any());
         }
+        [TestMethod]
+        public void GetEmployeesWhoHasNoManager()
+        {
+            var employees = Service.GetEmployeesWithoutManager();
+            Assert.IsTrue(employees.Any());
+        }
     }
 }

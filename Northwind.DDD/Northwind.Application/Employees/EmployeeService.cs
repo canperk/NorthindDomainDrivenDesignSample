@@ -63,5 +63,22 @@ namespace Northwind.Application.Services
                 ManagerId = i.ManagerId
             }).ToList();
         }
+
+        public IEnumerable<EmployeeDto> GetEmployeesWithoutManager()
+        {
+            var filter = new HasNoManagerFilter();
+            return _repo.Find(filter).Select(i => new EmployeeDto
+            {
+                Id = i.Id,
+                FirstName = i.FirstName,
+                LastName = i.LastName,
+                BirthDate = i.BirthDate,
+                City = i.City,
+                Country = i.Country,
+                EMail = i.EMail,
+                HireDate = i.HireDate,
+                ManagerId = i.ManagerId
+            });
+        }
     }
 }
