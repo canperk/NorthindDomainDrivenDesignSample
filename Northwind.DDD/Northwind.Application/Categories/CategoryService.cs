@@ -26,13 +26,12 @@ namespace Northwind.Application.Categories
         public CategoryDto GetById(int id)
         {
             var category = _repo.FindById(id);
-            return CategoryMapper.Instance.ToDto(category);
+            return category.ToDto();
         }
 
         public IEnumerable<Product> GetProducts(CategoryDto category)
         {
-            var entity = CategoryMapper.Instance.ToEntity(category);
-            return _repo.GetProducts(entity);
+            return _repo.GetProducts(category.ToEntity());
         }
     }
 }

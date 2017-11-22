@@ -1,12 +1,11 @@
 ﻿using Northwind.Application.Categories;
 using Northwind.Domain.Categories;
-using Northwind.Framework.Helpers;
 
 namespace Northwind.Application.Mappers
 {
-    public class CategoryMapper : SingleObject<CategoryMapper>, IEntityMapper<Category, CategoryDto>
+    public static class CategoryMapper
     {
-        public CategoryDto ToDto(Category entity)
+        public static CategoryDto ToDto(this Category entity)
         {
             var dto = new CategoryDto
             {
@@ -17,7 +16,7 @@ namespace Northwind.Application.Mappers
             return dto;
         }
 
-        public Category ToEntity(CategoryDto dto)
+        public static Category ToEntity(this CategoryDto dto)
         {
             var category = Category.Create(dto.Name, dto.Decription);
             category.SetId(dto.Id);
