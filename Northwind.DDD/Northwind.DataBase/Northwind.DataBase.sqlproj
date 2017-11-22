@@ -64,5 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Categories.sql" />
+    <None Include="Data\Products.sql" />
+    <None Include="Data\Suppliers.sql" />
   </ItemGroup>
 </Project>
