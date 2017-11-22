@@ -5,9 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Northwind.UnitTests
 {
+    [TestClass]
     public class CategoryTest : UnitTestBase
     {
         public CategoryTest()
@@ -21,6 +23,15 @@ namespace Northwind.UnitTests
         {
             var category = Service.GetById(1);
             var result = Service.HasProducts(category);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CategoryProductsCheck()
+        {
+            var category = Service.GetById(1);
+            var result = Service.GetProducts(category);
+            Assert.IsTrue(result.Any() && result.First().Id == 1);
         }
     }
 }

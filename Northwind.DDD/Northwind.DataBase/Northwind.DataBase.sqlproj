@@ -62,4 +62,7 @@
   <ItemGroup>
     <Build Include="Data\Employees.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Categories.sql" />
+  </ItemGroup>
 </Project>

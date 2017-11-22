@@ -43,5 +43,11 @@ namespace Northwind.Domain.Employees
             CommonPolicy.CheckMail(TypeCheck.IsNullOrEmpty(email));
             EMail = email;
         }
+
+        public void SetId(int id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            Id = id;
+        }
     }
 }

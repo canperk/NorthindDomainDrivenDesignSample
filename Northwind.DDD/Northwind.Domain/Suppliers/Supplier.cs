@@ -46,5 +46,11 @@ namespace Northwind.Domain.Suppliers
             //TODO: Fire event to notify supplier about updated mail address
             Email = mail;
         }
+
+        public void SetId(int id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            Id = id;
+        }
     }
 }

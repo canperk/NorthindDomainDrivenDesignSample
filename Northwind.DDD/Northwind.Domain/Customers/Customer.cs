@@ -51,5 +51,11 @@ namespace Northwind.Domain.Customers
 
             //TODO: Fire an event to manage other stuffs on creating and order for a customer
         }
+
+        public void SetId(string id)
+        {
+            TypeCheck.IsNullOrEmpty(id);
+            Id = id;
+        }
     }
 }

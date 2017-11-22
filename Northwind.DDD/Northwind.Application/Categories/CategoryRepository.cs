@@ -1,13 +1,11 @@
 ﻿using Northwind.Domain.Categories;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Domain.Products;
 using Northwind.Framework.Helpers;
 using System.Linq;
 using Northwind.Framework.Domain.Exceptions;
-using Northwind.Framework;
+using Northwind.Domain.Products;
+using System;
 
 namespace Northwind.Application.Categories
 {
@@ -19,7 +17,6 @@ namespace Northwind.Application.Categories
             _unitOfwork = unitOfwork;
         }
         public DbSet<Category> Repository => _unitOfwork.GetDbSet<Category>();
-
         public IEnumerable<Category> Find(IFilter<Category> filter)
         {
             return Repository.Where(filter.FilterExpression);
@@ -38,6 +35,11 @@ namespace Northwind.Application.Categories
         public Category FindSingle(IFilter<Category> spec)
         {
             return Repository.Where(spec.FilterExpression).SingleOrDefault();
+        }
+
+        public IEnumerable<Product> GetProducts(Category category)
+        {
+            return new List<Product>().AsReadOnly();
         }
 
         public void Remove(Category entity)

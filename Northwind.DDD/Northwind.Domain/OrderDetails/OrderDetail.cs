@@ -61,5 +61,11 @@ namespace Northwind.Domain.OrderDetails
         {
             throw new NotImplementedException();
         }
+
+        public void SetId(long id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            Id = id;
+        }
     }
 }

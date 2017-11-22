@@ -60,5 +60,11 @@ namespace Northwind.Domain.Products
             //TODO: Fire event to notify supplier on supplying new prouct
             SupplierId = id;
         }
+
+        public void SetId(long id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            Id = id;
+        }
     }
 }

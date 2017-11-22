@@ -44,5 +44,11 @@ namespace Northwind.Domain.Orders
 
             //TODO: Fire event to notify employee on sending this urgent order
         }
+
+        public void SetId(long id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            Id = id;
+        }
     }
 }

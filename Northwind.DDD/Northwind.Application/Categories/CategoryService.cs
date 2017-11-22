@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Northwind.Application.Mappers;
 using Northwind.Domain.Categories;
+using Northwind.Domain.Products;
 using Northwind.Framework.Domain;
 using Northwind.Framework.Helpers;
-using Northwind.Application.Services;
-using System;
+using System.Collections.Generic;
 
 namespace Northwind.Application.Categories
 {
@@ -18,14 +18,21 @@ namespace Northwind.Application.Categories
             _unitOfWork = unitOfWork;
         }
 
-        public bool HasProducts(Category category)
+        public bool HasProducts(CategoryDto category)
         {
             return true;
         }
 
-        public Category GetById(int id)
+        public CategoryDto GetById(int id)
         {
-            return _repo.FindById(id);
+            var category = _repo.FindById(id);
+            return CategoryMapper.Instance.ToDto(category);
+        }
+
+        public IEnumerable<Product> GetProducts(CategoryDto category)
+        {
+            var entity = CategoryMapper.Instance.ToEntity(category);
+            return _repo.GetProducts(entity);
         }
     }
 }

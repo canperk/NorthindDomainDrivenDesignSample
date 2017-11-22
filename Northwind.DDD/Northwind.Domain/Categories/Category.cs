@@ -19,15 +19,25 @@ namespace Northwind.Domain.Categories
         public void SetName(string name)
         {
             TypeCheck.IsNullOrEmpty(name);
-            //Check duplicated name from database --> domain rule
             Name = name;
         }
         public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
 
-        public static Category Create(string name)
+        public static Category Create(string name, string description = "")
         {
             var category = new Category();
+            category.SetName(name);
+            if (!string.IsNullOrEmpty(description))
+            {
+                category.Description = description;
+            }
             return category;
+        }
+
+        public void SetId(int id)
+        {
+            TypeCheck.IsUsableAsId(id);
+            Id = id;
         }
     }
 }

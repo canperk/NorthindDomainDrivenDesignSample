@@ -1,7 +1,7 @@
 ﻿USE [NorthwindDomainDriven]
 GO
 /****** Object:  Table [dbo].[Employees]    Script Date: 11/8/2017 4:15:24 PM ******/
-DROP TABLE [dbo].[Employees]
+DROP TABLE IF EXISTS [dbo].[Employees]
 GO
 /****** Object:  Table [dbo].[Employees]    Script Date: 11/8/2017 4:15:24 PM ******/
 SET ANSI_NULLS ON

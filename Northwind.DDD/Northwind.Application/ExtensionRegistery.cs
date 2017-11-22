@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Northwind.Application.Categories;
 using Northwind.Application.Database;
 using Northwind.Application.Employees;
 using Northwind.Application.Services;
+using Northwind.Domain.Categories;
 using Northwind.Domain.Employees;
 using Northwind.Framework.Helpers;
 
@@ -15,6 +17,7 @@ namespace Northwind.Application
             serviceCollection.AddScoped<DbContext, NorthwindDbContext>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
             serviceCollection.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            serviceCollection.AddScoped<ICategoryRepository, CategoryRepository>();
             serviceCollection.AddScoped<EmployeeService, EmployeeService>();
         }
     }
