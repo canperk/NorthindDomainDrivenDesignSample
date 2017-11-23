@@ -2,9 +2,7 @@
 using Northwind.Framework;
 using Northwind.Framework.Domain;
 using Northwind.Framework.Entity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Northwind.Domain.Suppliers
 {
@@ -24,7 +22,7 @@ namespace Northwind.Domain.Suppliers
         public string Phone { get; protected set; }
         public string Fax { get; protected set; }
 
-        public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
+        public virtual IReadOnlyCollection<Product> Products => _products.AsReadOnly();
 
         public static Supplier Create(string companyName, string manager, string email, string phone)
         {

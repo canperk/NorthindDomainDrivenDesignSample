@@ -13,9 +13,9 @@ namespace Northwind.UnitTests
     {
         public EmployeeTest()
         {
-            Service = new EmployeeService(_resolver.GetService<IEmployeeRepository>(), UnitOfWork);
+            Service = new EmployeeManager(_resolver.GetService<IEmployeeRepository>(), UnitOfWork);
         }
-        public EmployeeService Service { get; set; }
+        public EmployeeManager Service { get; set; }
         [TestMethod]
         public void GetEmployeeById()
         {

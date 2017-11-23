@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Northwind.Framework.Helpers;
 using System.Linq;
 using Northwind.Framework.Domain.Exceptions;
-using Northwind.Domain.Products;
-using System;
 
 namespace Northwind.Application.Categories
 {
@@ -35,11 +33,6 @@ namespace Northwind.Application.Categories
         public Category FindSingle(IFilter<Category> spec)
         {
             return Repository.Where(spec.FilterExpression).SingleOrDefault();
-        }
-
-        public IEnumerable<Product> GetProducts(Category category)
-        {
-            return new List<Product>().AsReadOnly();
         }
 
         public void Remove(Category entity)

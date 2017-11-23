@@ -2,6 +2,7 @@
 using Northwind.Framework;
 using Northwind.Framework.Entity;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Northwind.Domain.Categories
 {
@@ -21,7 +22,8 @@ namespace Northwind.Domain.Categories
             TypeCheck.IsNullOrEmpty(name);
             Name = name;
         }
-        public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
+        //TODO: EF Core bug (ReadOnlyCollection not working)
+        public ReadOnlyCollection<Product> Products() => _products.AsReadOnly();
 
         public static Category Create(string name, string description = "")
         {
@@ -38,6 +40,13 @@ namespace Northwind.Domain.Categories
         {
             TypeCheck.IsUsableAsId(id);
             Id = id;
+        }
+
+        public virtual void Add(Product product)
+        {
+            _products.Add(product);
+            //TODO: check product whether exists in another category and change product
+            //TODO: product added to category
         }
     }
 }

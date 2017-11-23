@@ -3,9 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Northwind.Application.Categories;
 using Northwind.Application.Database;
 using Northwind.Application.Employees;
+using Northwind.Application.Products;
 using Northwind.Application.Services;
 using Northwind.Domain.Categories;
 using Northwind.Domain.Employees;
+using Northwind.Domain.Products;
 using Northwind.Framework.Helpers;
 
 namespace Northwind.Application
@@ -18,7 +20,8 @@ namespace Northwind.Application
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
             serviceCollection.AddScoped<IEmployeeRepository, EmployeeRepository>();
             serviceCollection.AddScoped<ICategoryRepository, CategoryRepository>();
-            serviceCollection.AddScoped<EmployeeService, EmployeeService>();
+            serviceCollection.AddScoped<IProductRepository, ProductRepository>();
+            serviceCollection.AddScoped<EmployeeManager, EmployeeManager>();
         }
     }
 }

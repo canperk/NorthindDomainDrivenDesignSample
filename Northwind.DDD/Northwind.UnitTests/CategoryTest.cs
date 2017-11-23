@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using Northwind.Domain.Products;
 
 namespace Northwind.UnitTests
 {
@@ -14,9 +15,9 @@ namespace Northwind.UnitTests
     {
         public CategoryTest()
         {
-            Service = new CategoryService(_resolver.GetService<ICategoryRepository>(), UnitOfWork);
+            Service = new CategoryManager(UnitOfWork, _resolver.GetService<ICategoryRepository>(), _resolver.GetService<IProductRepository>());
         }
-        public CategoryService Service { get; set; }
+        public CategoryManager Service { get; set; }
 
         [TestMethod]
         public void CategoryHasProducts()
@@ -30,7 +31,7 @@ namespace Northwind.UnitTests
         public void CategoryProductsCheck()
         {
             var category = Service.GetById(1);
-            var result = Service.GetProducts(category);
+            var result = Service.GetProducts(category).ToList();
             Assert.IsTrue(result.Any() && result.First().Id == 1);
         }
     }

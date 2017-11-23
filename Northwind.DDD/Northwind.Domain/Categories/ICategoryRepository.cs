@@ -6,6 +6,5 @@ namespace Northwind.Domain.Categories
 {
     public interface ICategoryRepository : IRepository<Category, int>
     {
-        IEnumerable<Product> GetProducts(Category category);
     }
 }

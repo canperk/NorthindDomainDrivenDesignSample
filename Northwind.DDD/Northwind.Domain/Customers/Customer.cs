@@ -23,7 +23,7 @@ namespace Northwind.Domain.Customers
         public string City { get; set; }
         public string Country { get; set; }
 
-        public IReadOnlyCollection<Order> Orders => _orders.AsReadOnly();
+        public virtual IReadOnlyCollection<Order> Orders => _orders.AsReadOnly();
         public void ChangeCustomerCode(string code)
         {
             //TODO: check whether customer code exists on database (it is unique)
