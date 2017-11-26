@@ -22,8 +22,7 @@ namespace Northwind.Domain.Categories
             TypeCheck.IsNullOrEmpty(name);
             Name = name;
         }
-        //TODO: EF Core bug (ReadOnlyCollection not working)
-        public ReadOnlyCollection<Product> Products() => _products.AsReadOnly();
+        public virtual ReadOnlyCollection<Product> Products { get { return new ReadOnlyCollection<Product>(_products); } }
 
         public static Category Create(string name, string description = "")
         {
